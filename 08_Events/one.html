@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Events</title>
+    <style>
+        body{
+            background-color: #414141;
+            color: #fff;
+        }
+
+        .container{
+            width: 100%;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>Amazing images</h2>
+        <div>
+            <ul id="images">
+                <li><img width="300px" id="bird" src="https://images.unsplash.com/photo-1688134497176-a205bd7e54c8?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHx0b3BpYy1mZWVkfDJ8SnBnNktpZGwtSGt8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=600&q=60" alt=""></li>
+                <li><img width="300px" id="camel" src="https://images.unsplash.com/photo-1688240371753-24368f363a47?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHx0b3BpYy1mZWVkfDF8SnBnNktpZGwtSGt8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=600&q=60" alt=""></li>
+                <li><img width="300px" id="horse" src="https://images.unsplash.com/photo-1688024776638-579765b29e3c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHx0b3BpYy1mZWVkfDd8SnBnNktpZGwtSGt8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=600&q=60" alt=""></li>
+                <li><img width="300px" id="cat" src="https://plus.unsplash.com/premium_photo-1686810855843-cb595b8418bd?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHx0b3BpYy1mZWVkfDEzfEpwZzZLaWRsLUhrfHxlbnwwfHx8fHw%3D&auto=format&fit=crop&w=600&q=60" alt=""></li>
+                <li><img width="300px" id="rabit" src="https://images.unsplash.com/photo-1685650970732-0261c1976728?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHx0b3BpYy1mZWVkfDEyfEpwZzZLaWRsLUhrfHxlbnwwfHx8fHw%3D&auto=format&fit=crop&w=600&q=60" alt=""></li>
+                <li><img width="300px" id="peacock" src="https://images.unsplash.com/photo-1671600936720-cbe146709e52?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHx0b3BpYy1mZWVkfDIxfEpwZzZLaWRsLUhrfHxlbnwwfHx8fHw%3D&auto=format&fit=crop&w=600&q=60" alt=""></li>
+                <li><img width="300px" id="parrot" src="https://images.unsplash.com/photo-1687340873547-f525d9edd984?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHx0b3BpYy1mZWVkfDQxfEpwZzZLaWRsLUhrfHxlbnwwfHx8fHw%3D&auto=format&fit=crop&w=600&q=60" alt=""></li>
+                <li><a  id="google" href="https://google.com">Google</a></li>
+            </ul>
+        </div>
+    </div>
+</body>
+<script>
+    // document.getElementById('camel').onclick = function (){
+    //     alert("Camel Clicked")
+    // }
+
+    // attachEvent() :- Previously used for internet explorer
+    // JQuery -> on
+
+    // type, timestamp, defaultPrevented
+    // target, toElement, srcElement, currentTarget
+    // clientX, clientY, screenX, screenY
+    // altkey, ctrlkey, shiftkey, keyCode
+
+    // Event Propogation :-
+    // 1) event bubbling : (false) by default -> child to parent
+    // 2) event capturing : (true) manually -> parent to child
+    // To stop this propogation we use : event.stopPropogation();
+
+    // document.getElementById('images').addEventListener('click', (event) => {
+    //     console.log('Clicked inside ul')
+    // })
+
+    // document.getElementById('camel').addEventListener('click', (event) => {
+    //     event.stopPropagation();
+    //     console.log('Camel is Clicked')
+    // })
+
+    // document.getElementById('google').addEventListener('click', (event) => {
+    //     event.stopPropagation(); // Use to stop the propogation
+    //     event.preventDefault(); // Used to prevent the default behaviour
+    //     console.log('Google Clicked');
+    // })
+
+    document.querySelector('#images').addEventListener('click', function (e){
+        // console.log(e.target.parentNode); // it will give the parent node of the selected element
+
+        console.log(e.target.tagName);
+        if (e.target.tagName === 'IMG') {
+            let removeIt = e.target.parentNode;
+            removeIt.remove();
+        }
+
+
+        // removeIt.parentNode.removeChild(removeIt);
+    })
+
+
+
+</script>
+</html>
