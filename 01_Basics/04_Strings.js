@@ -20,6 +20,12 @@ console.log(gameName.__proto__); // Prints the prototype of the element
 // console.log(gameName.charAt(5));
 // console.log(gameName.indexOf("t"));
 
+
+//## Difference Between substring() and slice()
+
+// 1) Negative Values:- substring() and slice() both can have negative values but if there is a negative value in substring() than it treats as 0 and slice() slice counts from the end.
+// 2) Paramenter Consistency:- A big difference with substring() is that if the 1st argument is greater than the 2nd argument, substring() will swap them. slice() returns an empty string if the 1st argument is greater than the 2nd argument.
+
 const subString = gameName.substring(0, 4) // End value is not included
 // console.log(subString);
 
