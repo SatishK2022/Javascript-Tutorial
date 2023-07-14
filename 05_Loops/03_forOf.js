@@ -10,7 +10,7 @@ for (const greet of greetings) {
     if (greet == " ") {
         continue;
     }
-    // console.log(`Each Char is ${greet}`);
+    console.log(`Each Char is ${greet}`);
 }
 
 // Map : It does not take the duplicate entries
