@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>API Request</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body>
+    <div class="bg-slate-800 h-[100vh] w-[100vw] flex items-center justify-center">
+        <div class="bg-white w-4/5 md:w-2/6 rounded-lg overflow-hidden">
+            <div>
+                <img class="bg-cover bg-top w-full" id="img">
+            </div>
+            <div class="p-5 ">
+                <p class="text-lg font-medium">Follower's Count: <span id="followers"></span></p>
+            </div>
+        </div>
+    </div>
+</body>
+<script>
+    const img = document.getElementById('img');
+    const followers = document.getElementById('followers');
+
+    const requestURL = 'https://api.github.com/users/hiteshchoudhary'
+
+    const request = new XMLHttpRequest();
+    request.open('GET', requestURL); // Sending the request
+    request.onreadystatechange = function() { // Checking the state
+        console.log(request.readyState);
+        if (request.readyState === 4) {
+            const data = JSON.parse(this.responseText);
+            console.log(data.followers);
+
+            followers.innerText = data.followers;
+            console.log(data.avatar_url);
+            img.setAttribute('src', data.avatar_url)
+        }
+    }
+    request.send()
+</script>
+</html>
